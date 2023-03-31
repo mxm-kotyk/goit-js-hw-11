@@ -25,7 +25,7 @@
   &-form {
     display: flex;
     border-radius: 5px;
-    transition: box-shadow 250ms cubic-bezier(0.36, 0.95, 0.78, 0.42);
+    transition: box-shadow 250ms ease;
   }
 
   &-box {
@@ -44,7 +44,7 @@
     border-radius: 0 5px 5px 0;
     border: 1px solid transparent;
     cursor: pointer;
-    transition: background-color 150ms cubic-bezier(0.36, 0.95, 0.78, 0.42);
+    transition: background-color 150ms ease;
     &:hover,
     &:focus-visible {
       background-color: #94d3c4;
@@ -60,4 +60,33 @@
 
 .focused {
   box-shadow: 0 0 0 4px #393e4680;
+}
+
+.gallery {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+
+  &-section {
+    padding-top: 30px;
+    padding-bottom: 30px;
+  }
+}
+
+.photo-card {
+  width: calc((100% - 60px) / 4);
+}
+
+.info {
+  padding: 10px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
+  align-items: center;
+  &-item {
+    margin: 0;
+    width: calc((100% - 10px) / 2);
+    font-size: 12px;
+  }
 }
