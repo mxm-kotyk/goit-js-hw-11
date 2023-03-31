@@ -1,1 +1,2 @@
-import './js/imagesSearch';
+import './js/searchImages';
+import './js/formStyles';
