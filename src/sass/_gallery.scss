@@ -1,0 +1,54 @@
+.gallery {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+
+  &-section {
+    padding-top: 30px;
+    padding-bottom: 30px;
+  }
+  &-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+}
+
+.photo-card {
+  width: calc((100% - 60px) / 4);
+}
+
+.info {
+  padding: 10px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
+  align-items: center;
+  &-item {
+    margin: 0;
+    width: calc((100% - 10px) / 2);
+    font-size: 12px;
+  }
+}
+
+.load-more {
+  height: 40px;
+  padding-left: 16px;
+  padding-right: 16px;
+
+  color: white;
+  background-color: #1a807e;
+  border-radius: 20px;
+  border: 1px solid transparent;
+  cursor: pointer;
+  transition: background-color 150ms ease;
+  &:hover,
+  &:focus-visible {
+    background-color: #1b6088;
+  }
+  &:active {
+    background-color: #1b8851;
+  }
+}
