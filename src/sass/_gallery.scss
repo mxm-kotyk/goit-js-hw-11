@@ -19,6 +19,10 @@
   width: calc((100% - 60px) / 4);
 }
 
+.photo-link {
+  text-decoration: none;
+}
+
 .info {
   padding: 10px;
   display: flex;
@@ -26,6 +30,7 @@
   gap: 10px;
   justify-content: center;
   align-items: center;
+  color: #393e46;
   &-item {
     margin: 0;
     width: calc((100% - 10px) / 2);
