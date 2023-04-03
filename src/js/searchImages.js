@@ -1,8 +1,7 @@
 import { PixabayAPI } from './fetchImages';
 import { Notify } from 'notiflix';
-import SimpleLightbox from 'simplelightbox';
-import 'simplelightbox/dist/simple-lightbox.min.css';
 import { createGalleryMarkup } from './createMarkup';
+import { lightboxGallery } from './SimpleLightbox';
 
 const searchService = new PixabayAPI();
 export const refs = {
@@ -12,8 +11,6 @@ export const refs = {
   loadMoreBtn: document.querySelector('.load-more'),
   gallery: document.querySelector('.gallery'),
 };
-const lightboxGallery = new SimpleLightbox('.gallery a', {});
-lightboxGallery.open(refs.searchBtn);
 
 const hendleSearchOnSubmit = e => {
   e.preventDefault();
@@ -33,7 +30,6 @@ const hendleSearchOnSubmit = e => {
 const loadMoreOnClick = () => {
   searchService.incrementPage();
   fetchImages();
-  lightboxGallery.refresh();
 };
 
 const hideloadMoreBtnOnLastPage = data => {
@@ -62,9 +58,9 @@ const fetchImages = async () => {
     }
 
     insertGalleryMarkup(data);
-    lightboxGallery.open('a');
     refs.loadMoreBtn.classList.remove('visually-hidden');
     hideloadMoreBtnOnLastPage(data);
+    scrollViewport(getHeight());
   } catch (error) {
     Notify.failure(
       `Ooops, something went wrong...
@@ -76,11 +72,28 @@ const fetchImages = async () => {
 const insertGalleryMarkup = data => {
   const markup = createGalleryMarkup(data.hits);
   refs.gallery.insertAdjacentHTML('beforeend', markup);
+  lightboxGallery.refresh();
 };
 
 const clearGalleryMarkup = () => {
   refs.gallery.innerHTML = '';
   refs.loadMoreBtn.classList.add('visually-hidden');
+};
+
+const getHeight = () => {
+  const { height: cardHeight } = document
+    .querySelector('.gallery')
+    .firstElementChild.getBoundingClientRect();
+  return cardHeight;
+};
+
+const scrollViewport = height => {
+  if (searchService.pageNumber > 1) {
+    window.scrollBy({
+      top: height * 2,
+      behavior: 'smooth',
+    });
+  }
 };
 
 refs.searchForm.addEventListener('submit', hendleSearchOnSubmit);
