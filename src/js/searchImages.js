@@ -1,7 +1,7 @@
 import { PixabayAPI } from './fetchImages';
 import { Notify } from 'notiflix';
 import { createGalleryMarkup } from './createMarkup';
-import { lightboxGallery } from './SimpleLightbox';
+import { lightboxGallery } from './simpleLightbox';
 
 const searchService = new PixabayAPI();
 export const refs = {
