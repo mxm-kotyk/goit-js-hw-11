@@ -4,17 +4,15 @@
   align-items: center;
   justify-content: center;
   background-color: #61c0bf;
-  // outline: 1px solid tomato;
   &-container {
-    position: relative;
-    display: flex;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
     align-items: center;
-    justify-content: center;
+    justify-items: center;
   }
 }
 
 .logo {
-  position: absolute;
   left: 30px;
   color: #393e46;
   font-family: 'Berkshire Swash', cursive;
@@ -38,9 +36,6 @@
     &:focus {
       outline: none;
     }
-    // &::placeholder {
-    //   vertical-align: bottom;
-    // }
   }
 
   &-button {
