@@ -44,7 +44,6 @@ const hideloadMoreBtnOnLastPage = data => {
 const fetchImages = async () => {
   try {
     const data = await searchService.getImages();
-    console.log(data);
 
     if (data.hits.length === 0) {
       Notify.failure(
