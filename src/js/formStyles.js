@@ -1,6 +1,7 @@
 import { icon } from '@fortawesome/fontawesome-svg-core';
 import { faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons';
-import { refs } from './searchImages';
+import { refs } from './searchImagesInfScroll';
+// import { refs } from './searchImages';
 
 const searchIcon = icon(faMagnifyingGlass);
 

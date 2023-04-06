@@ -16,7 +16,6 @@ const showBtnOnScroll = () => {
   } else {
     toTopButton.classList.add('untouchable');
   }
-  console.log('scroll');
 };
 
 const returnToTopOnClick = () => {
